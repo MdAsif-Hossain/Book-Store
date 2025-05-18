@@ -12,6 +12,7 @@ export interface Book {
   pages: number;
   publishYear: number;
   isbn: string;
+  language?: string;
 }
 
 export interface CartItem {

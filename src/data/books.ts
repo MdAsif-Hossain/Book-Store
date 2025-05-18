@@ -14,7 +14,8 @@ export const books: Book[] = [
     inStock: 15,
     pages: 304,
     publishYear: 2020,
-    isbn: "978-0525559474"
+    isbn: "978-0525559474",
+    language: "English"
   },
   {
     id: "2",
@@ -28,7 +29,8 @@ export const books: Book[] = [
     inStock: 12,
     pages: 334,
     publishYear: 2018,
-    isbn: "978-0399590504"
+    isbn: "978-0399590504",
+    language: "English"
   },
   {
     id: "3",
@@ -42,7 +44,8 @@ export const books: Book[] = [
     inStock: 20,
     pages: 336,
     publishYear: 2019,
-    isbn: "978-1250301697"
+    isbn: "978-1250301697",
+    language: "English"
   },
   {
     id: "4",
@@ -56,7 +59,8 @@ export const books: Book[] = [
     inStock: 25,
     pages: 320,
     publishYear: 2018,
-    isbn: "978-0735211292"
+    isbn: "978-0735211292",
+    language: "English"
   },
   {
     id: "5",
@@ -70,7 +74,8 @@ export const books: Book[] = [
     inStock: 18,
     pages: 384,
     publishYear: 2018,
-    isbn: "978-0735219090"
+    isbn: "978-0735219090",
+    language: "English"
   },
   {
     id: "6",
@@ -84,7 +89,8 @@ export const books: Book[] = [
     inStock: 14,
     pages: 496,
     publishYear: 2021,
-    isbn: "978-0593135204"
+    isbn: "978-0593135204",
+    language: "English"
   },
   {
     id: "7",
@@ -98,7 +104,8 @@ export const books: Book[] = [
     inStock: 11,
     pages: 464,
     publishYear: 2021,
-    isbn: "978-1250178602"
+    isbn: "978-1250178602",
+    language: "English"
   },
   {
     id: "8",
@@ -112,6 +119,114 @@ export const books: Book[] = [
     inStock: 13,
     pages: 352,
     publishYear: 2020,
-    isbn: "978-0525536291"
+    isbn: "978-0525536291",
+    language: "English"
+  },
+  // Adding new books
+  {
+    id: "9",
+    title: "Klara and the Sun",
+    author: "Kazuo Ishiguro",
+    description: "From the Nobel Prize-winning author, a story of an Artificial Friend with outstanding observational qualities.",
+    price: 17.49,
+    coverImage: "https://m.media-amazon.com/images/I/81nI+7IbN9L._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Science Fiction", "Literary Fiction"],
+    featured: true,
+    inStock: 10,
+    pages: 320,
+    publishYear: 2021,
+    isbn: "978-0571364879",
+    language: "English"
+  },
+  {
+    id: "10",
+    title: "The Lincoln Highway",
+    author: "Amor Towles",
+    description: "A captivating novel set in 1950s America, filled with glorious mythology, the story of brotherhood, and the bittersweet joys of youth.",
+    price: 18.99,
+    coverImage: "https://m.media-amazon.com/images/I/81g8S0+4LzL._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Historical Fiction", "Adventure"],
+    featured: false,
+    inStock: 8,
+    pages: 592,
+    publishYear: 2021,
+    isbn: "978-0735222359",
+    language: "English"
+  },
+  // Bangla Books
+  {
+    id: "11",
+    title: "ফেলুদা সমগ্র",
+    author: "সত্যজিৎ রায়",
+    description: "সত্যজিৎ রায়ের অমর সৃষ্টি - ফেলুদা উপন্যাস সংকলন।",
+    price: 22.99,
+    coverImage: "https://m.media-amazon.com/images/I/81QQRmsP+xL._AC_UF894,1000_QL80_.jpg",
+    categories: ["Bangla", "Mystery", "Adventure"],
+    featured: true,
+    inStock: 20,
+    pages: 850,
+    publishYear: 2010,
+    isbn: "978-8177564587",
+    language: "Bangla"
+  },
+  {
+    id: "12",
+    title: "পথের পাঁচালী",
+    author: "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
+    description: "বাংলা সাহিত্যের অমর কীর্তি - অপুর জীবনকাহিনী।",
+    price: 14.99,
+    coverImage: "https://m.media-amazon.com/images/I/71KHp6begOL._AC_UF894,1000_QL80_.jpg",
+    categories: ["Bangla", "Classic", "Literary Fiction"],
+    featured: false,
+    inStock: 15,
+    pages: 330,
+    publishYear: 1929,
+    isbn: "978-9351564355",
+    language: "Bangla"
+  },
+  {
+    id: "13",
+    title: "শেষের কবিতা",
+    author: "রবীন্দ্রনাথ ঠাকুর",
+    description: "রবীন্দ্রনাথ ঠাকুরের এই উপন্যাসে প্রেম, স্বাধীনতা ও আধুনিকতার সংঘাত দেখা যায়।",
+    price: 12.99,
+    coverImage: "https://m.media-amazon.com/images/I/71ciYk02CoL._AC_UF894,1000_QL80_.jpg",
+    categories: ["Bangla", "Classic", "Poetry", "Romance"],
+    featured: true,
+    inStock: 10,
+    pages: 240,
+    publishYear: 1929,
+    isbn: "978-8171676934",
+    language: "Bangla"
+  },
+  {
+    id: "14",
+    title: "চোখের বালি",
+    author: "রবীন্দ্রনাথ ঠাকুর",
+    description: "বাংলা সাহিত্যের এই অমর উপন্যাসে প্রেম, বিবাহ এবং সামাজিক রীতিনীতির জটিল সম্পর্ক তুলে ধরা হয়েছে।",
+    price: 13.49,
+    coverImage: "https://m.media-amazon.com/images/I/51rg-DQ9SwL._SX258_BO1,204,203,200_.jpg",
+    categories: ["Bangla", "Classic", "Romance"],
+    featured: false,
+    inStock: 12,
+    pages: 280,
+    publishYear: 1903,
+    isbn: "978-8171676941",
+    language: "Bangla"
+  },
+  {
+    id: "15",
+    title: "হিমু সমগ্র",
+    author: "হুমায়ূন আহমেদ",
+    description: "হুমায়ূন আহমেদের জনপ্রিয় চরিত্র হিমুর গল্প সংকলন।",
+    price: 24.99,
+    coverImage: "https://m.media-amazon.com/images/I/613o9nT7UIL._AC_UF894,1000_QL80_.jpg",
+    categories: ["Bangla", "Contemporary", "Fiction"],
+    featured: true,
+    inStock: 18,
+    pages: 920,
+    publishYear: 2015,
+    isbn: "978-9849135791",
+    language: "Bangla"
   }
 ];
