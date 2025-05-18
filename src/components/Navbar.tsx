@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -45,6 +44,15 @@ const Navbar = () => {
             >
               Books
             </Link>
+            {currentUser && (
+              <Link
+                to="/dashboard"
+                className="text-bookstore-dark-text hover:text-bookstore-purple transition-colors flex items-center gap-1"
+              >
+                <User className="h-4 w-4" />
+                Profile
+              </Link>
+            )}
             {currentUser?.isAdmin && (
               <Link
                 to="/admin/dashboard"
@@ -168,8 +176,8 @@ const Navbar = () => {
                   className="text-bookstore-dark-text hover:text-bookstore-purple transition-colors flex items-center gap-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <History className="h-4 w-4" />
-                  My Dashboard
+                  <User className="h-4 w-4" />
+                  Profile
                 </Link>
               )}
               {currentUser?.isAdmin && (
