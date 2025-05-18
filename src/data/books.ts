@@ -1,0 +1,117 @@
+
+import { Book } from "../types";
+
+export const books: Book[] = [
+  {
+    id: "1",
+    title: "The Midnight Library",
+    author: "Matt Haig",
+    description: "Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived.",
+    price: 16.99,
+    coverImage: "https://m.media-amazon.com/images/I/81tCtHFtOgL._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Fiction", "Fantasy", "Contemporary"],
+    featured: true,
+    inStock: 15,
+    pages: 304,
+    publishYear: 2020,
+    isbn: "978-0525559474"
+  },
+  {
+    id: "2",
+    title: "Educated",
+    author: "Tara Westover",
+    description: "An unforgettable memoir about a young girl who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University.",
+    price: 15.95,
+    coverImage: "https://m.media-amazon.com/images/I/91+BoOWBR4L._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Memoir", "Biography", "Nonfiction"],
+    featured: true,
+    inStock: 12,
+    pages: 334,
+    publishYear: 2018,
+    isbn: "978-0399590504"
+  },
+  {
+    id: "3",
+    title: "The Silent Patient",
+    author: "Alex Michaelides",
+    description: "A woman shoots her husband five times and then never speaks another word. The story follows the criminal psychotherapist who is determined to get her to talk.",
+    price: 14.99,
+    coverImage: "https://m.media-amazon.com/images/I/91lslnZ-btL._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Thriller", "Mystery", "Psychological"],
+    featured: true,
+    inStock: 20,
+    pages: 336,
+    publishYear: 2019,
+    isbn: "978-1250301697"
+  },
+  {
+    id: "4",
+    title: "Atomic Habits",
+    author: "James Clear",
+    description: "An easy and proven way to build good habits and break bad ones. A practical guide to making small changes that lead to big results.",
+    price: 18.99,
+    coverImage: "https://m.media-amazon.com/images/I/81bGKUa1e0L._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Self-Help", "Psychology", "Nonfiction"],
+    featured: false,
+    inStock: 25,
+    pages: 320,
+    publishYear: 2018,
+    isbn: "978-0735211292"
+  },
+  {
+    id: "5",
+    title: "Where the Crawdads Sing",
+    author: "Delia Owens",
+    description: "A novel about a young woman who grows up isolated in the marshes of North Carolina and becomes entangled in a local murder mystery.",
+    price: 15.99,
+    coverImage: "https://m.media-amazon.com/images/I/81O1oy0y9eL._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Fiction", "Mystery", "Literary"],
+    featured: false,
+    inStock: 18,
+    pages: 384,
+    publishYear: 2018,
+    isbn: "978-0735219090"
+  },
+  {
+    id: "6",
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    description: "A lone astronaut must save the earth from disaster in this gripping tale of survival and interstellar adventure.",
+    price: 17.99,
+    coverImage: "https://m.media-amazon.com/images/I/91YU39Uw2BL._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Science Fiction", "Adventure", "Space"],
+    featured: true,
+    inStock: 14,
+    pages: 496,
+    publishYear: 2021,
+    isbn: "978-0593135204"
+  },
+  {
+    id: "7",
+    title: "The Four Winds",
+    author: "Kristin Hannah",
+    description: "An epic novel of love, heroism, and hope, set against the backdrop of the Great Depression and Dust Bowl era in America.",
+    price: 19.99,
+    coverImage: "https://m.media-amazon.com/images/I/91vkOGTVi+L._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Historical Fiction", "Drama"],
+    featured: false,
+    inStock: 11,
+    pages: 464,
+    publishYear: 2021,
+    isbn: "978-1250178602"
+  },
+  {
+    id: "8",
+    title: "The Vanishing Half",
+    author: "Brit Bennett",
+    description: "A stunning novel about twin sisters who choose to live in two very different worlds, one black and one white.",
+    price: 16.49,
+    coverImage: "https://m.media-amazon.com/images/I/81qQhM3FYNL._AC_UF1000,1000_QL80_.jpg",
+    categories: ["Literary Fiction", "Historical"],
+    featured: true,
+    inStock: 13,
+    pages: 352,
+    publishYear: 2020,
+    isbn: "978-0525536291"
+  }
+];

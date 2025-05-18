@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				bookstore: {
+					purple: '#9b87f5',
+					'dark-purple': '#7E69AB',
+					'light-purple': '#E5DEFF',
+					'soft-bg': '#F6F6F7',
+					'dark-text': '#1A1F2C',
+					'light-text': '#8E9196'
 				}
 			},
 			borderRadius: {
@@ -89,7 +98,11 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Merriweather', 'serif'],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
