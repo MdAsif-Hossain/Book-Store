@@ -18,6 +18,7 @@ import BookDetails from "@/pages/BookDetails";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Cart from "@/pages/Cart";
+import UserDashboard from "@/pages/UserDashboard";
 import AdminDashboard from "@/pages/admin/Dashboard";
 import ManageBooks from "@/pages/admin/ManageBooks";
 import NotFound from "@/pages/NotFound";
@@ -42,6 +43,7 @@ const App = () => (
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/cart" element={<Cart />} />
+                  <Route path="/dashboard" element={<UserDashboard />} />
                   <Route path="/admin/dashboard" element={<AdminDashboard />} />
                   <Route path="/admin/manage-books" element={<ManageBooks />} />
                   <Route path="*" element={<NotFound />} />

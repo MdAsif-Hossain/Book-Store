@@ -9,6 +9,7 @@ import {
   Book,
   Menu,
   X,
+  History,
 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -84,6 +85,13 @@ const Navbar = () => {
                 <div className="absolute right-0 w-48 mt-2 bg-white shadow-lg rounded-md p-2 border border-gray-100 hidden group-hover:block">
                   <div className="py-2 px-4 text-sm text-gray-500">{currentUser.email}</div>
                   <hr className="my-1" />
+                  <Link
+                    to="/dashboard"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-bookstore-light-purple rounded-md w-full text-left flex items-center gap-2"
+                  >
+                    <History className="h-4 w-4" />
+                    My Dashboard
+                  </Link>
                   {currentUser.isAdmin && (
                     <Link
                       to="/admin/dashboard"
@@ -154,6 +162,16 @@ const Navbar = () => {
               >
                 Books
               </Link>
+              {currentUser && (
+                <Link
+                  to="/dashboard"
+                  className="text-bookstore-dark-text hover:text-bookstore-purple transition-colors flex items-center gap-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <History className="h-4 w-4" />
+                  My Dashboard
+                </Link>
+              )}
               {currentUser?.isAdmin && (
                 <Link
                   to="/admin/dashboard"
