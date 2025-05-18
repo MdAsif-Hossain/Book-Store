@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { User } from "../types";
 
@@ -9,6 +8,7 @@ interface AuthContextType {
   logout: () => void;
   isLoading: boolean;
   error: string | null;
+  sendEmail: (to: string, subject: string, content: string) => Promise<boolean>;
 }
 
 // Sample users for demo purposes
@@ -106,6 +106,24 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem("bookstoreUser");
   };
 
+  const sendEmail = async (to: string, subject: string, content: string): Promise<boolean> => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      // Simulate API call for sending email
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log(`Email sent to: ${to}`);
+      console.log(`Subject: ${subject}`);
+      console.log(`Content: ${content}`);
+      return true;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send email");
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const value = {
     currentUser,
     login,
@@ -113,6 +131,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     logout,
     isLoading,
     error,
+    sendEmail,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

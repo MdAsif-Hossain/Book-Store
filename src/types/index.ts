@@ -35,3 +35,18 @@ export interface Order {
   status: "pending" | "completed" | "cancelled";
   createdAt: string;
 }
+
+export interface PaymentSlip {
+  id: string;
+  orderId: string;
+  amount: number;
+  customerName: string;
+  customerEmail: string;
+  paymentDate: string;
+  receiptNumber: string;
+  items: {
+    name: string;
+    quantity: number;
+    price: number;
+  }[];
+}
