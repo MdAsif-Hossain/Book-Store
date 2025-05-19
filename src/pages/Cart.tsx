@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,7 @@ import {
   CreditCard,
   Truck,
   Phone,
-  Cash,
+  DollarSign,
 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -202,7 +201,7 @@ const Cart = () => {
                       <div className="flex items-center space-x-2 border rounded-md p-3 hover:bg-gray-50">
                         <RadioGroupItem value="cash" id="cash" />
                         <Label htmlFor="cash" className="flex items-center cursor-pointer">
-                          <Cash className="h-5 w-5 mr-2 text-green-600" />
+                          <DollarSign className="h-5 w-5 mr-2 text-green-600" />
                           <div>
                             <p className="font-medium">Cash on Delivery</p>
                             <p className="text-xs text-gray-500">Pay when you receive your order</p>
