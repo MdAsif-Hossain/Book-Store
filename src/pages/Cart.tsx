@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,18 +8,31 @@ import {
   Trash2,
   ShoppingBag,
   ArrowRight,
+  CreditCard,
+  Truck,
+  Phone,
+  Cash,
 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+
+type PaymentMethod = "cash" | "bkash" | "nagad";
 
 const Cart = () => {
   const { cartItems, updateQuantity, removeFromCart, clearCart, cartTotal } = useCart();
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [showPaymentMethods, setShowPaymentMethods] = useState(false);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<PaymentMethod>("cash");
+  
+  const DELIVERY_CHARGE = 100;
+  const finalTotal = cartTotal + DELIVERY_CHARGE;
 
-  const handleCheckout = () => {
+  const handleProceedToPayment = () => {
     if (!currentUser) {
       toast({
         title: "Login Required",
@@ -29,14 +42,27 @@ const Cart = () => {
       navigate("/login");
       return;
     }
+    
+    setShowPaymentMethods(true);
+  };
 
+  const handleCheckout = () => {
     // Simulating a checkout process
     toast({
       title: "Order Completed",
-      description: "Your order has been placed successfully!",
+      description: `Your order has been placed successfully with ${getPaymentMethodName(selectedPaymentMethod)} payment!`,
     });
     clearCart();
     navigate("/");
+  };
+  
+  const getPaymentMethodName = (method: PaymentMethod) => {
+    switch (method) {
+      case "cash": return "Cash on Delivery";
+      case "bkash": return "bKash";
+      case "nagad": return "Nagad";
+      default: return "";
+    }
   };
 
   return (
@@ -148,21 +174,73 @@ const Cart = () => {
                     <span>${cartTotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Shipping</span>
-                    <span>Free</span>
+                    <span>Delivery Charge</span>
+                    <span>${DELIVERY_CHARGE.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between border-t border-gray-100 pt-4 font-medium">
                     <span>Total</span>
-                    <span>${cartTotal.toFixed(2)}</span>
+                    <span>${finalTotal.toFixed(2)}</span>
                   </div>
                 </div>
 
-                <Button
-                  onClick={handleCheckout}
-                  className="w-full mt-6 bg-bookstore-purple hover:bg-bookstore-dark-purple text-white"
-                >
-                  Checkout <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                {!showPaymentMethods ? (
+                  <Button
+                    onClick={handleProceedToPayment}
+                    className="w-full mt-6 bg-bookstore-purple hover:bg-bookstore-dark-purple text-white"
+                  >
+                    Proceed to Payment <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                ) : (
+                  <div className="mt-6">
+                    <h3 className="text-lg font-medium mb-4">Select Payment Method</h3>
+                    
+                    <RadioGroup 
+                      value={selectedPaymentMethod} 
+                      onValueChange={(value) => setSelectedPaymentMethod(value as PaymentMethod)}
+                      className="space-y-3"
+                    >
+                      <div className="flex items-center space-x-2 border rounded-md p-3 hover:bg-gray-50">
+                        <RadioGroupItem value="cash" id="cash" />
+                        <Label htmlFor="cash" className="flex items-center cursor-pointer">
+                          <Cash className="h-5 w-5 mr-2 text-green-600" />
+                          <div>
+                            <p className="font-medium">Cash on Delivery</p>
+                            <p className="text-xs text-gray-500">Pay when you receive your order</p>
+                          </div>
+                        </Label>
+                      </div>
+                      
+                      <div className="flex items-center space-x-2 border rounded-md p-3 hover:bg-gray-50">
+                        <RadioGroupItem value="bkash" id="bkash" />
+                        <Label htmlFor="bkash" className="flex items-center cursor-pointer">
+                          <Phone className="h-5 w-5 mr-2 text-pink-600" />
+                          <div>
+                            <p className="font-medium">bKash</p>
+                            <p className="text-xs text-gray-500">Pay with your bKash account</p>
+                          </div>
+                        </Label>
+                      </div>
+                      
+                      <div className="flex items-center space-x-2 border rounded-md p-3 hover:bg-gray-50">
+                        <RadioGroupItem value="nagad" id="nagad" />
+                        <Label htmlFor="nagad" className="flex items-center cursor-pointer">
+                          <Phone className="h-5 w-5 mr-2 text-orange-600" />
+                          <div>
+                            <p className="font-medium">Nagad</p>
+                            <p className="text-xs text-gray-500">Pay with your Nagad account</p>
+                          </div>
+                        </Label>
+                      </div>
+                    </RadioGroup>
+                    
+                    <Button
+                      onClick={handleCheckout}
+                      className="w-full mt-6 bg-bookstore-purple hover:bg-bookstore-dark-purple text-white"
+                    >
+                      Complete Checkout <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+                )}
 
                 <div className="mt-6 text-center">
                   <Link
