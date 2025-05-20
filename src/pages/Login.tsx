@@ -49,7 +49,7 @@ const Login = () => {
                 <Book className="h-10 w-10 text-bookstore-purple" />
               </div>
               <h1 className="font-serif text-2xl font-bold">Sign In</h1>
-              <p className="text-gray-500 mt-2">Welcome back to PageTurner</p>
+              <p className="text-gray-500 mt-2">Welcome back to Isfahan</p>
             </div>
 
             <form onSubmit={handleSubmit}>
