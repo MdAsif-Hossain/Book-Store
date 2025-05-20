@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <Book className="h-5 w-5 text-bookstore-purple" />
-              <span className="font-serif font-bold text-xl">PageTurner</span>
+              <span className="font-serif font-bold text-xl">Isfahan</span>
             </div>
             <p className="text-gray-600 max-w-md">
               Your destination for discovering new worlds through books. From bestsellers to rare finds, we have everything for book lovers.
@@ -51,20 +51,20 @@ const Footer = () => {
             <h4 className="font-serif font-medium text-lg mb-4">Contact</h4>
             <ul className="space-y-2">
               <li className="text-gray-600">
-                123 Book Street, Reading City
+                22/21, Nandipara, Khillgaon, Dhaka
               </li>
               <li className="text-gray-600">
-                contact@pageturner.com
+                asifhossain8612@gmail.com
               </li>
               <li className="text-gray-600">
-                +1 (555) 123-4567
+                +8801630521697
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-100 mt-10 pt-6 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} PageTurner Books. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Infahan's Books. All rights reserved.</p>
         </div>
       </div>
     </footer>
