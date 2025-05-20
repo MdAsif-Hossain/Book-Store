@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -28,8 +29,12 @@ const Cart = () => {
   const [showPaymentMethods, setShowPaymentMethods] = useState(false);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<PaymentMethod>("cash");
   
+  // Fixed delivery charge in BDT
   const DELIVERY_CHARGE = 100;
-  const finalTotal = cartTotal + DELIVERY_CHARGE;
+  
+  // Convert cart total from USD to BDT
+  const cartTotalBDT = cartTotal * 120;
+  const finalTotal = cartTotalBDT + DELIVERY_CHARGE;
 
   const handleProceedToPayment = () => {
     if (!currentUser) {
@@ -94,68 +99,72 @@ const Cart = () => {
                   </h2>
 
                   <div className="space-y-6">
-                    {cartItems.map((item) => (
-                      <div
-                        key={item.book.id}
-                        className="flex flex-col sm:flex-row gap-4 pb-6 border-b last:border-0"
-                      >
-                        <div className="sm:w-20 flex-shrink-0">
-                          <img
-                            src={item.book.coverImage}
-                            alt={item.book.title}
-                            className="w-full h-auto rounded"
-                          />
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
-                            <div>
-                              <Link
-                                to={`/books/${item.book.id}`}
-                                className="font-medium hover:text-bookstore-purple"
-                              >
-                                {item.book.title}
-                              </Link>
-                              <p className="text-sm text-gray-500">
-                                {item.book.author}
-                              </p>
+                    {cartItems.map((item) => {
+                      // Convert individual item price to BDT
+                      const itemPriceBDT = item.book.price * 120;
+                      return (
+                        <div
+                          key={item.book.id}
+                          className="flex flex-col sm:flex-row gap-4 pb-6 border-b last:border-0"
+                        >
+                          <div className="sm:w-20 flex-shrink-0">
+                            <img
+                              src={item.book.coverImage}
+                              alt={item.book.title}
+                              className="w-full h-auto rounded"
+                            />
+                          </div>
+                          <div className="flex-grow">
+                            <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
+                              <div>
+                                <Link
+                                  to={`/books/${item.book.id}`}
+                                  className="font-medium hover:text-bookstore-purple"
+                                >
+                                  {item.book.title}
+                                </Link>
+                                <p className="text-sm text-gray-500">
+                                  {item.book.author}
+                                </p>
+                              </div>
+                              <div className="mt-2 sm:mt-0 font-medium">
+                                {(itemPriceBDT * item.quantity).toFixed(0)} ৳
+                              </div>
                             </div>
-                            <div className="mt-2 sm:mt-0 font-medium">
-                              ${(item.book.price * item.quantity).toFixed(2)}
+                            <div className="flex justify-between items-center">
+                              <div className="flex items-center space-x-2">
+                                <button
+                                  onClick={() =>
+                                    updateQuantity(
+                                      item.book.id,
+                                      Math.max(1, item.quantity - 1)
+                                    )
+                                  }
+                                  className="text-gray-500 hover:text-bookstore-purple"
+                                >
+                                  <MinusCircle className="h-5 w-5" />
+                                </button>
+                                <span className="px-2">{item.quantity}</span>
+                                <button
+                                  onClick={() =>
+                                    updateQuantity(item.book.id, item.quantity + 1)
+                                  }
+                                  className="text-gray-500 hover:text-bookstore-purple"
+                                >
+                                  <PlusCircle className="h-5 w-5" />
+                                </button>
+                              </div>
+                              <button
+                                onClick={() => removeFromCart(item.book.id)}
+                                className="text-gray-500 hover:text-red-500"
+                              >
+                                <Trash2 className="h-5 w-5" />
+                              </button>
                             </div>
                           </div>
-                          <div className="flex justify-between items-center">
-                            <div className="flex items-center space-x-2">
-                              <button
-                                onClick={() =>
-                                  updateQuantity(
-                                    item.book.id,
-                                    Math.max(1, item.quantity - 1)
-                                  )
-                                }
-                                className="text-gray-500 hover:text-bookstore-purple"
-                              >
-                                <MinusCircle className="h-5 w-5" />
-                              </button>
-                              <span className="px-2">{item.quantity}</span>
-                              <button
-                                onClick={() =>
-                                  updateQuantity(item.book.id, item.quantity + 1)
-                                }
-                                className="text-gray-500 hover:text-bookstore-purple"
-                              >
-                                <PlusCircle className="h-5 w-5" />
-                              </button>
-                            </div>
-                            <button
-                              onClick={() => removeFromCart(item.book.id)}
-                              className="text-gray-500 hover:text-red-500"
-                            >
-                              <Trash2 className="h-5 w-5" />
-                            </button>
-                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -170,15 +179,15 @@ const Cart = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
-                    <span>${cartTotal.toFixed(2)}</span>
+                    <span>{cartTotalBDT.toFixed(0)} ৳</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Delivery Charge</span>
-                    <span>${DELIVERY_CHARGE.toFixed(2)}</span>
+                    <span>{DELIVERY_CHARGE.toFixed(0)} ৳</span>
                   </div>
                   <div className="flex justify-between border-t border-gray-100 pt-4 font-medium">
                     <span>Total</span>
-                    <span>${finalTotal.toFixed(2)}</span>
+                    <span>{finalTotal.toFixed(0)} ৳</span>
                   </div>
                 </div>
 

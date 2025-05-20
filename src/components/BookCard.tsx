@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, BookOpen } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { Book } from "@/types";
 import { useCart } from "@/contexts/CartContext";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +14,8 @@ interface BookCardProps {
 
 const BookCard: React.FC<BookCardProps> = ({ book, className = "" }) => {
   const { addToCart } = useCart();
+  // Convert price from USD to BDT (1$ = 120 BDT)
+  const priceBDT = book.price * 120;
 
   return (
     <div 
@@ -46,7 +48,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, className = "" }) => {
         </Link>
         <p className="text-sm text-gray-600 mb-2">{book.author}</p>
         <div className="flex items-center justify-between mt-4">
-          <span className="font-bold text-bookstore-dark-text">${book.price.toFixed(2)}</span>
+          <span className="font-bold text-bookstore-dark-text">{priceBDT.toFixed(0)} ৳</span>
           <Button
             size="sm"
             onClick={() => addToCart(book)}

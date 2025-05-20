@@ -1,6 +1,10 @@
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Book, CartItem } from "../types";
 import { toast } from "@/components/ui/use-toast";
+
+// Currency conversion rate (1 USD = 120 BDT)
+export const USD_TO_BDT_RATE = 120;
 
 interface CartContextType {
   cartItems: CartItem[];
@@ -79,7 +83,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setCartItems([]);
   };
 
-  // Calculate cart total
+  // Calculate cart total (in USD)
   const cartTotal = cartItems.reduce(
     (total, item) => total + item.book.price * item.quantity,
     0

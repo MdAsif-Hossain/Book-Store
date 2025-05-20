@@ -32,6 +32,9 @@ const BookDetails = () => {
     );
   }
 
+  // Convert price from USD to BDT
+  const priceBDT = book.price * 120;
+
   // Add to cart with notification
   const handleAddToCart = () => {
     addToCart(book);
@@ -78,7 +81,7 @@ const BookDetails = () => {
               </div>
 
               <div className="flex items-center mb-6">
-                <span className="text-2xl font-bold mr-4">${book.price.toFixed(2)}</span>
+                <span className="text-2xl font-bold mr-4">{priceBDT.toFixed(0)} ৳</span>
                 <span className="text-sm text-gray-500">
                   {book.inStock > 0 ? `${book.inStock} in stock` : "Out of stock"}
                 </span>
