@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import {
   Menu,
   X,
   History,
+  ShieldCheck,
 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -117,11 +119,18 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              <Link to="/login">
-                <Button variant="outline" className="text-bookstore-purple border-bookstore-purple hover:bg-bookstore-light-purple">
-                  Sign In
-                </Button>
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link to="/login">
+                  <Button variant="outline" className="text-bookstore-purple border-bookstore-purple hover:bg-bookstore-light-purple">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/admin-login">
+                  <Button variant="ghost" size="icon" className="text-bookstore-purple">
+                    <ShieldCheck className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             )}
           </div>
 
@@ -202,6 +211,13 @@ const Navbar = () => {
                     {itemCount}
                   </span>
                 )}
+              </Link>
+              <Link
+                to="/admin-login"
+                className="text-bookstore-dark-text hover:text-bookstore-purple transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Admin Login
               </Link>
               <div className="pt-2 flex">
                 {currentUser ? (

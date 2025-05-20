@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
-import { Book } from "lucide-react";
+import { Book, ShieldCheck } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -99,6 +99,12 @@ const Login = () => {
                 Don't have an account?{" "}
                 <Link to="/register" className="text-bookstore-purple hover:underline">
                   Register
+                </Link>
+              </p>
+              <p className="text-gray-600 mt-2">
+                <Link to="/admin-login" className="text-bookstore-purple hover:underline flex items-center justify-center gap-1 mt-1">
+                  <ShieldCheck className="h-4 w-4" />
+                  Admin Login
                 </Link>
               </p>
             </div>

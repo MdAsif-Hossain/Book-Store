@@ -1,9 +1,11 @@
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { User } from "../types";
 
 interface AuthContextType {
   currentUser: User | null;
   login: (email: string, password: string) => Promise<void>;
+  adminLogin: (username: string, password: string) => Promise<boolean>;
   register: (email: string, name: string, password: string) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
@@ -25,6 +27,12 @@ const sampleUsers: User[] = [
     name: "Regular User",
     isAdmin: false,
   },
+  {
+    id: "3",
+    email: "asif@admin.com",
+    name: "Asif",
+    isAdmin: true,
+  }
 ];
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -62,6 +70,36 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
       throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const adminLogin = async (username: string, password: string) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
+      // Check specific admin credentials
+      if (username === "Asif" && password === "Asif86") {
+        const adminUser = {
+          id: "3",
+          email: "asif@admin.com",
+          name: "Asif",
+          isAdmin: true,
+        };
+        setCurrentUser(adminUser);
+        localStorage.setItem("bookstoreUser", JSON.stringify(adminUser));
+        return true;
+      }
+      
+      setError("Invalid admin credentials");
+      return false;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
+      return false;
     } finally {
       setIsLoading(false);
     }
@@ -127,6 +165,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const value = {
     currentUser,
     login,
+    adminLogin,
     register,
     logout,
     isLoading,
