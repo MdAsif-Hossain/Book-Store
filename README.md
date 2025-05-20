@@ -1,73 +1,101 @@
-# Welcome to your Lovable project
+# 📚 Book Store
 
-## Project info
+Welcome to **Curious Pages Shoppe**, an AI-powered online bookstore offering a seamless browsing and purchasing experience. Built with modern web technologies, this project demonstrates a clean, fast, and responsive frontend design.
 
-**URL**: https://lovable.dev/projects/9a0c9a82-d42c-407e-b4b0-e63bcaca6af0
+🌐 **Live Site**: [curious-pages-shoppe.lovable.app](https://curious-pages-shoppe.lovable.app/)
 
-## How can I edit this code?
+![GitHub repo size](https://img.shields.io/github/repo-size/MdAsif-Hossain/Book-Store)
+![GitHub last commit](https://img.shields.io/github/last-commit/MdAsif-Hossain/Book-Store)
+![License](https://img.shields.io/github/license/MdAsif-Hossain/Book-Store)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9a0c9a82-d42c-407e-b4b0-e63bcaca6af0) and start prompting.
+- 🔍 Book listings with interactive UI
+- 📱 Responsive design for all devices
+- ⚡ Blazing fast performance using Vite + Bun
+- 🎨 Styled with Tailwind CSS
+- 🧠 Built and deployed using AI-powered Lovable platform
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Frontend:** React + TypeScript
+- **Styling:** Tailwind CSS
+- **Bundler:** Vite
+- **Runtime/Package Manager:** Bun
+- **Hosting:** Lovable.app
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📁 Folder Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+Book-Store/
+├── public/                 # Static assets
+├── src/                    # Source files
+│   ├── components/         # Reusable components
+│   ├── pages/              # Page components
+│   ├── App.tsx             # Root App component
+│   └── main.tsx            # App entry point
+├── index.html              # HTML template
+├── tailwind.config.ts      # Tailwind configuration
+├── vite.config.ts          # Vite config file
+├── bun.lockb               # Bun lock file
+├── package.json            # Project metadata
+└── README.md               # Project documentation
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🧑‍💻 Getting Started
 
-**Use GitHub Codespaces**
+### Prerequisites
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Install [Bun](https://bun.sh/docs/installation)
 
-## What technologies are used for this project?
+### Installation
 
-This project is built with:
+1. Clone the repository:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+git clone https://github.com/MdAsif-Hossain/Book-Store.git
+cd Book-Store
+```
 
-## How can I deploy this project?
+2. Install dependencies:
 
-Simply open [Lovable](https://lovable.dev/projects/9a0c9a82-d42c-407e-b4b0-e63bcaca6af0) and click on Share -> Publish.
+```bash
+bun install
+```
 
-## Can I connect a custom domain to my Lovable project?
+3. Start the development server:
 
-Yes, you can!
+```bash
+bun run dev
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+4. Open in browser:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```
+http://localhost:5173
+```
+
+---
+
+
+
+## 📬 Contact
+
+If you have any questions, feel free to reach out:
+
+- **Email**: [asifhossain8612@gmail.com](mailto:asifhossain8612@gmail.com)
+- **GitHub**: [MdAsif-Hossain](https://github.com/MdAsif-Hossain)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
