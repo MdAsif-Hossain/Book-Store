@@ -23,7 +23,7 @@ export const books: Book[] = [
     author: "Tara Westover",
     description: "An unforgettable memoir about a young girl who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University.",
     price: 15.95,
-    coverImage: "https://m.media-amazon.com/images/I/91+BoOWBR4L._AC_UF1000,1000_QL80_.jpg",
+    coverImage: "https://m.media-amazon.com/images/I/41GE5-l2ptL._SY445_SX342_.jpg",
     categories: ["Memoir", "Biography", "Nonfiction"],
     featured: true,
     inStock: 12,
